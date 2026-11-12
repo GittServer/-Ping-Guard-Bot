@@ -1,0 +1,16 @@
+{
+    "intervalo_segundos": 60,
+    "telegram_token": "SEU_TOKEN_DO_BOT_TELEGRAM_AQUI",
+    "telegram_chat_id": "SEU_CHAT_ID_AQUI",
+    "discord_webhook_url": "SUA_WEBHOOK_URL_DO_DISCORD_AQUI",
+    "alvos": [
+        {
+            "nome": "Meu Site Principal",
+            "url": "https://raven-host-cloud.elementfx.com/raven_host_1601/home_host.php"
+        },
+        {
+            "nome": "API do Meu Bot",
+            "url": "https://sua-api.com/health"
+        }
+    ]
+}
