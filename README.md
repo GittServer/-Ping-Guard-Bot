@@ -77,3 +77,5 @@ Um monitor de quedas não pode rodar no seu computador pessoal, pois se o seu PC
 📄 Licença
 
 Distribuído sob a licença MIT. Livre para usar, modificar e integrar aos seus projetos.
+
+FIM.
