@@ -24,22 +24,24 @@ Monitor autônomo de uptime em Python puro para vigiar APIs, sites, painéis e w
 
 ## 📂 Estrutura do Projeto
 
-```text
+```
+text
 ping-guard-bot/
 ├── config.json      # Lista de URLs monitoradas e tokens de alerta
 ├── ping_guard.py    # Script principal de monitoramento contínuo
 └── README.md        # Documentação do projeto
+```
 
 ## ⚙️ Instalação e Uso
 
 1. Clone o repositório
-
+```
 git clone [https://github.com/SEU-USUARIO/ping-guard-bot.git](https://github.com/SEU-USUARIO/ping-guard-bot.git)
 cd ping-guard-bot
-
+```
 2. Configure os alvos e alertas
 Edite o arquivo config.json com os links que deseja vigiar e suas chaves de notificação (deixe em branco a plataforma que não for usar):
-
+```
 {
     "intervalo_segundos": 60,
     "telegram_token": "SEU_TOKEN_DO_BOT_TELEGRAM_AQUI",
@@ -56,4 +58,5 @@ Edite o arquivo config.json com os links que deseja vigiar e suas chaves de noti
         }
     ]
 }
+```
 
