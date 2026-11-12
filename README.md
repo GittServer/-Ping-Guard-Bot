@@ -35,7 +35,7 @@ ping-guard-bot/
 
 1. Clone o repositório
 ```
-git clone [https://github.com/SEU-USUARIO/ping-guard-bot.git](https://github.com/SEU-USUARIO/ping-guard-bot.git)
+git clone https://github.com/SEU-USUARIO/ping-guard-bot.git
 cd ping-guard-bot
 ```
 2. Configure os alvos e alertas
@@ -49,11 +49,11 @@ Edite o arquivo config.json com os links que deseja vigiar e suas chaves de noti
     "alvos": [
         {
             "nome": "Meu Site Principal",
-            "url": "[https://raven-host-cloud.elementfx.com](https://raven-host-cloud.elementfx.com/raven_host_1601/home_host.php)"
+            "url": "https://raven-host-cloud.elementfx.com/raven_host_1601/home_host.php"
         },
         {
             "nome": "API do Meu Bot",
-            "url": "[https://sua-api.com/health](https://sua-api.com/health)"
+            "url": "https://sua-api.com/health"
         }
     ]
 }
