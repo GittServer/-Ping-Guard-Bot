@@ -68,11 +68,11 @@ python ping_guard.py
 
 Um monitor de quedas não pode rodar no seu computador pessoal, pois se o seu PC desligar ou ficar sem internet, você fica sem alertas.
 
-    1. Crie sua conta gratuita ou escolha um plano na ☁ Raven Host.
+    1. Crie sua conta e escolha um plano na ☁ Raven Host.
 
     2. Suba os arquivos ping_guard.py e config.json pelo painel.
 
-    3. Defina o arquivo principal como ping_guard.py e clique em Iniciar.
+    3. Defina o arquivo principal como ping_guard.py e clique em Start/ Iniciar.
 
 📄 Licença
 
