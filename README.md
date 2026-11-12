@@ -30,3 +30,30 @@ ping-guard-bot/
 ├── ping_guard.py    # Script principal de monitoramento contínuo
 └── README.md        # Documentação do projeto
 
+## ⚙️ Instalação e Uso
+
+1. Clone o repositório
+
+git clone [https://github.com/SEU-USUARIO/ping-guard-bot.git](https://github.com/SEU-USUARIO/ping-guard-bot.git)
+cd ping-guard-bot
+
+2. Configure os alvos e alertas
+Edite o arquivo config.json com os links que deseja vigiar e suas chaves de notificação (deixe em branco a plataforma que não for usar):
+
+{
+    "intervalo_segundos": 60,
+    "telegram_token": "SEU_TOKEN_DO_BOT_TELEGRAM_AQUI",
+    "telegram_chat_id": "SEU_CHAT_ID_AQUI",
+    "discord_webhook_url": "SUA_WEBHOOK_URL_DO_DISCORD_AQUI",
+    "alvos": [
+        {
+            "nome": "Meu Site Principal",
+            "url": "[https://raven-host-cloud.elementfx.com](https://raven-host-cloud.elementfx.com)"
+        },
+        {
+            "nome": "API do Meu Bot",
+            "url": "[https://sua-api.com/health](https://sua-api.com/health)"
+        }
+    ]
+}
+
