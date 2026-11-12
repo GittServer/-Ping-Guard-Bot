@@ -2,13 +2,13 @@
 
 Monitor autônomo de uptime em Python puro para vigiar APIs, sites, painéis e webhooks 24 horas por dia, enviando alertas instantâneos via **Discord** e **Telegram** sempre que um serviço sair do ar ou voltar a ficar online.
 
-[![Powered by Raven Host](https://img.shields.io/badge/Powered%20by-Raven%20Host-7c3aed?style=for-the-badge&logo=icloud&logoColor=white)](https://raven-host-cloud.elementfx.com)
+[![Powered by Raven Host](https://img.shields.io/badge/Powered%20by-Raven%20Host-7c3aed?style=for-the-badge&logo=icloud&logoColor=white)](https://raven-host-cloud.elementfx.com/raven_host_1601/home_host.php)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Zero Dependencies](https://img.shields.io/badge/Dependências-Zero%20(Stdlib)-10b981?style=for-the-badge)](#)
 
 ---
 
-> 🚀 **Rodando e patrocinado com alta performance por [Raven Host](https://raven-host-cloud.elementfx.com)**  
+> 🚀 **Rodando e patrocinado com alta performance por [Raven Host](https://raven-host-cloud.elementfx.com/raven_host_1601/home_host.php)**  
 > *Precisa manter este monitor ou seus bots de Discord, WhatsApp e Telegram rodando 24h na nuvem sem deixar o PC ligado? Hospede seu código em segundos na **☁ Raven Host** — infraestrutura otimizada para Python, Node.js e IA.*
 
 ---
@@ -25,7 +25,6 @@ Monitor autônomo de uptime em Python puro para vigiar APIs, sites, painéis e w
 ## 📂 Estrutura do Projeto
 
 ```
-text
 ping-guard-bot/
 ├── config.json      # Lista de URLs monitoradas e tokens de alerta
 ├── ping_guard.py    # Script principal de monitoramento contínuo
@@ -50,7 +49,7 @@ Edite o arquivo config.json com os links que deseja vigiar e suas chaves de noti
     "alvos": [
         {
             "nome": "Meu Site Principal",
-            "url": "[https://raven-host-cloud.elementfx.com](https://raven-host-cloud.elementfx.com)"
+            "url": "[https://raven-host-cloud.elementfx.com](https://raven-host-cloud.elementfx.com/raven_host_1601/home_host.php)"
         },
         {
             "nome": "API do Meu Bot",
