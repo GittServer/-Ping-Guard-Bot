@@ -6,11 +6,11 @@
     "alvos": [
         {
             "nome": "Meu Site Principal",
-            "url": "https://raven-host-cloud.elementfx.com/raven_host_1601/home_host.php"
+            "url": "https://link-de-um-site-que-voce-quer-monitorar-aqui.com/index.html"
         },
         {
-            "nome": "API do Meu Bot",
-            "url": "https://sua-api.com/health"
+            "nome": "API do Bot - IP VPS : PORTA SERVER",
+            "url": "http://122.205.24.100:2000/"
         }
     ]
 }
