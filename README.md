@@ -39,7 +39,8 @@ ping-guard-bot/
 git clone https://github.com/GittServer/-Ping-Guard-Bot.git
 cd -Ping-Guard-Bot
 ```
-2. Configure os alvos e alertas
+2. Configure os alvos e alertas.
+
 Edite o arquivo config.json com os links que deseja vigiar e suas chaves de notificação (deixe em branco a plataforma que não for usar):
 ```
 {
