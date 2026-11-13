@@ -17,6 +17,7 @@ Monitor autônomo de uptime em Python puro para vigiar APIs, sites, painéis e w
 
 * **Zero Dependências Externas:** Utiliza apenas bibliotecas nativas do Python (`urllib`, `json`, `logging`). Não exige `pip install` nem ambientes virtuais pesados.
 * **Alertas Inteligentes (Anti-Spam):** Notifica apenas na mudança de estado (quando o serviço **cai** e quando **volta**), evitando flood no seu chat.
+* **Alertas no celular:** Você recebe avisos push no celular através do App do Discord.
 * **Multi-Plataforma:** Suporte simultâneo para Webhooks do **Discord** e Bots do **Telegram**.
 * **Ultra Leve:** Consome menos de 15MB de RAM, ideal para rodar em containers e servidores cloud enxutos.
 
