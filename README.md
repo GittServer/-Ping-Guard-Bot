@@ -41,7 +41,11 @@ cd -Ping-Guard-Bot
 ```
 2. Configure os alvos e alertas.
 
-Edite o arquivo config.json com os links que deseja vigiar e suas chaves de notificação (deixe em branco a plataforma que não for usar):
+- Edite o arquivo config.json com os links que deseja vigiar e suas chaves de notificação (deixe em branco a plataforma que não for usar):
+EX: "telegram_token": "",
+- E em:
+"nome": "API do Bot - IP VPS : PORTA SERVER", - VOCÊ PODE DEIXAR ASSIM MESMO.
+"url": "http://122.205.24.100:2000/" - JÁ AQUI VOCÊ DEVE POR O IP DA VPS OU PC E DEPOIS : A PORTA DO SERVER.
 ```
 {
     "intervalo_segundos": 60,
