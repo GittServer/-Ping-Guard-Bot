@@ -2,6 +2,7 @@
     "intervalo_segundos": 60,
     "telegram_token": "SEU_TOKEN_DO_BOT_TELEGRAM_AQUI",
     "telegram_chat_id": "SEU_CHAT_ID_AQUI",
+    "telegram_usuario": "SEU_USER_TELEGRAM_AQUI",
     "discord_webhook_url": "SUA_WEBHOOK_URL_DO_DISCORD_AQUI",
     "alvos": [
         {
@@ -9,6 +10,7 @@
             "url": "https://link-de-um-site-que-voce-quer-monitorar-aqui.com/index.html"
         },
         {
+            "usuario_discord": "@seu.usuario.aqui",
             "nome": "API do Bot - IP VPS : PORTA SERVER",
             "url": "http://122.205.24.100:2000/"
         }
