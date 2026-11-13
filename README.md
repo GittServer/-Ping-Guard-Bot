@@ -52,8 +52,8 @@ Edite o arquivo config.json com os links que deseja vigiar e suas chaves de noti
             "url": "https://raven-host-cloud.elementfx.com/raven_host_1601/home_host.php"
         },
         {
-            "nome": "API do Meu Bot",
-            "url": "https://sua-api.com/health"
+            "nome": "API do Bot - IP VPS : PORTA SERVER",
+            "url": "http://122.205.24.100:2000/"
         }
     ]
 }
