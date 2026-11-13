@@ -3,20 +3,20 @@
 '''
 Como ele funciona (Explicação passo a passo para leigos):
 
-    A Lista de Alvos: O script lê um arquivo de configuração onde você cadastra os links (APIs, sites ou webhooks) que deseja vigiar.
+    A Lista de Alvos: O script lê um arquivo "config.json" de configuração onde você cadastra os links (APIs, sites ou webhooks) que deseja vigiar.
 
-    A Ronda (O Ping): A cada intervalo de tempo determinado (por exemplo, a cada 5 minutos), o script faz um "toque" digital (uma requisição web) 
-    em cada link da lista para ver se eles respondem com sucesso.
+    A Ronda (O Ping): A cada intervalo de tempo determinado (por exemplo, a cada 1 minuto), o script faz um "toque" digital (uma requisição web) 
+    em cada link da lista para ver se eles respondem com sucesso = 200.
 
     O Diagnóstico:
 
         Se o site/bot responder normalmente, ele continua a ronda em silêncio.
 
-        Se o link falhar, demorar demais ou retornar um erro (como o famoso erro 500 ou 404), o script entende que o serviço caiu.
+        Se o link falhar, demorar demais ou retornar um erro (como o famoso erro 500 ou 404), o script entende que o serviço caiu, OFFLINE.
 
     O Alerta Imediato: Assim que a queda é detectada, o script envia um aviso automático direto para o seu Telegram ou Discord (avisando que o serviço X ficou offline).
 
-    Rodando 24h na Nuvem: Como ele foi feito para rodar direto sem desligar, você o hospeda em um servidor leve (como na Raven Host) e ele trabalha sozinho dia e noite para você.
+    Rodando 24h na Nuvem: Como ele foi feito para rodar direto sem desligar, você o hospeda em um servidor (como na ☁Raven Host) e ele trabalha sozinho dia e noite para você.
 '''
 
 import time
@@ -45,7 +45,7 @@ def carregar_config():
         return None
 
 def enviar_alerta_telegram(token, chat_id, mensagem):
-    if not token or not chat_id or token == "SEU_TOKEN_DO_BOT_TELEGRAM_AQUI":
+    if not token or not chat_id or token == "": 
         return
     try:
         url = f"https://api.telegram.org/bot{token}/sendMessage"
@@ -56,11 +56,16 @@ def enviar_alerta_telegram(token, chat_id, mensagem):
         logging.error(f"Falha ao enviar alerta no Telegram: {e}")
 
 def enviar_alerta_discord(webhook_url, mensagem):
-    if not webhook_url or webhook_url == "SUA_WEBHOOK_URL_DO_DISCORD_AQUI":
+    if not webhook_url or webhook_url == "": 
         return
     try:
         dados = json.dumps({"content": mensagem}).encode('utf-8')
-        req = urllib.request.Request(webhook_url, data=dados, headers={'Content-Type': 'application/json'}, method='POST')
+        # Adicionado o User-Agent personalizado para evitar bloqueio 403 do Discord
+        headers = {
+            'Content-Type': 'application/json',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) PingGuardBot/1.0'
+        }
+        req = urllib.request.Request(webhook_url, data=dados, headers=headers, method='POST')
         urllib.request.urlopen(req, timeout=10)
     except Exception as e:
         logging.error(f"Falha ao enviar alerta no Discord: {e}")
@@ -97,6 +102,7 @@ def testar_url(url):
 
 def main():
     logging.info("🛡️ Ping-Guard-Bot iniciado com sucesso!")
+    logging.info("🛡️ ------------------------------------")
     
     # Dicionário para controlar o estado anterior e evitar spam de alertas repetidos
     estados_anteriores = {}
@@ -119,19 +125,22 @@ def main():
 
             if status_atual:
                 logging.info(f"[ONLINE] {nome} ({url})")
+                logging.info("🛡️ ------------------------------------")
                 if not estado_anterior:
-                    # O serviço voltou ao ar!
-                    disparar_alerta(config, f"🟢 RECUPERADO: O serviço *{nome}* voltou a ficar ONLINE!")
+                    # O serviço voltou ao ar! (Sem exibir a URL na mensagem enviada)
+                    time.sleep(100) # 100 = 2min.
+                    disparar_alerta(config, f"🟢 RECUPERADO: @lucas_avila.eletro_tech O serviço *{nome}* voltou a ficar ONLINE na ☁Raven Host!")
                 estados_anteriores[nome] = True
             else:
                 logging.warning(f"[OFFLINE] {nome} ({url})")
+                logging.warning("🛡️ ------------------------------------")
                 if estado_anterior:
-                    # O serviço acabou de cair!
-                    disparar_alerta(config, f"🚨 ALERTA DE QUEDA: O serviço *{nome}* ({url}) está OFFLINE!")
+                    # O serviço acabou de cair! (Sem exibir a URL na mensagem enviada)
+                    disparar_alerta(config, f"🚨 ALERTA DE QUEDA: @lucas_avila.eletro_tech O serviço *{nome}* está OFFLINE na ☁Raven Host!")
                 estados_anteriores[nome] = False
 
         time.sleep(intervalo)
 
 if __name__ == '__main__':
     main()
-# CODE FIM.    
+# CODE FIM.
