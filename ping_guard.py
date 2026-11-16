@@ -51,7 +51,7 @@ def enviar_alerta_telegram(token, chat_id, mensagem):
         url = f"https://api.telegram.org/bot{token}/sendMessage"
         dados = urllib.parse.urlencode({'chat_id': chat_id, 'text': mensagem}).encode('utf-8')
         req = urllib.request.Request(url, data=dados, method='POST')
-        urllib.request.urlopen(req, timeout=10)
+        urllib.request.urlopen(req, timeout=15) # ERA: 10
     except Exception as e:
         logging.error(f"Falha ao enviar alerta no Telegram: {e}")
 
@@ -117,6 +117,7 @@ def main():
         alvos = config.get('alvos', [])
 
         for alvo in alvos:
+            usuario_discord = alvo.get('usuario_discord')
             nome = alvo.get('nome')
             url = alvo.get('url')
 
@@ -129,14 +130,14 @@ def main():
                 if not estado_anterior:
                     # O serviço voltou ao ar! (Sem exibir a URL na mensagem enviada)
                     time.sleep(100) # 100 = 2min.
-                    disparar_alerta(config, f"🟢 RECUPERADO: @lucas_avila.eletro_tech O serviço *{nome}* voltou a ficar ONLINE na ☁Raven Host!")
+                    disparar_alerta(config, f"🟢 RECUPERADO: *{usuario_discord}* O serviço *{nome}* voltou a ficar ONLINE na ☁Raven Host!")
                 estados_anteriores[nome] = True
             else:
                 logging.warning(f"[OFFLINE] {nome} ({url})")
                 logging.warning("🛡️ ------------------------------------")
                 if estado_anterior:
                     # O serviço acabou de cair! (Sem exibir a URL na mensagem enviada)
-                    disparar_alerta(config, f"🚨 ALERTA DE QUEDA: @lucas_avila.eletro_tech O serviço *{nome}* está OFFLINE na ☁Raven Host!")
+                    disparar_alerta(config, f"🚨 ALERTA DE QUEDA: *{usuario_discord}* O serviço *{nome}* está OFFLINE na ☁Raven Host!")
                 estados_anteriores[nome] = False
 
         time.sleep(intervalo)
